@@ -7594,7 +7594,7 @@ $$<h3 id="Ejemplo-Num%C3%A9rico">Ejemplo Numérico<a class="anchor-link" href="#
 <ul>
 <li>$\text{VP} = 100$</li>
 <li>$t = 10$ años</li>
-<li>$r \sim \mathcal{N}(0.09, 0.001)$</li>
+<li>$r \sim \mathcal{N}(0.09, 0.0316^2)$</li>
 </ul>
 $$
 E[\text{VF}] = 100(1 + 0.09 \cdot 10) = 190
@@ -7670,8 +7670,8 @@ $$
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>E[VF]: 189.9893
-Var[VF]: 999.8547
+<pre>E[VF]: 190.0085
+Var[VF]: 1000.0281
 </pre>
 </div>
 </div>
@@ -8218,8 +8218,9 @@ Var[VF]: 999.8547
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>2025-09-08 13:00:32.946 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted uniform distribution with error=76.013313)
-2025-09-08 13:00:32.960 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted norm distribution with error=5.596107)
+<pre>2025-09-09 09:56:36.139 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted uniform distribution with error=76.013313)
+2025-09-09 09:56:36.232 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted norm distribution with error=5.596107)
+2025-09-09 09:56:36.250 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted norm distribution with error=0.0)
 </pre>
 </div>
 </div>
@@ -8234,8 +8235,7 @@ Var[VF]: 999.8547
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
-<pre>2025-09-08 13:00:33.842 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted norm distribution with error=0.0)
-2025-09-08 13:00:33.843 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted uniform distribution with error=0.0)
+<pre>2025-09-09 09:56:37.002 | INFO     | fitter.fitter:_fit_single_distribution:333 - Fitted uniform distribution with error=0.0)
 </pre>
 </div>
 </div>
@@ -8314,7 +8314,14 @@ $$NPV = - Inv + \sum_{i=1}^n (\frac{(P - C)y_i - Fix}{(1 + r)^{i}})$$<p>donde:</
 <p>En el contexto del problema, se aplica esperanza para conocer el valor esperado de toda la expresión</p>
 $$E[NPV] = E[- Inv + \sum_{i=1}^5 (\frac{(P - C)y_i - Fix}{(1 + r)^{i}})]$$<p>Con ayuda de la propiedad $E[a + b] = E[a] + E[b]$</p>
 $$E[NPV] = - E[Inv] + E[\sum_{i=1}^5(\frac{(P - C)y_i - Fix}{(1 + r)^{i}})]$$<p>Usando la propiedad $E[c \times x] = c \times E[x]$ y sabiendo que la única variable aleatoria es las unidades de venta</p>
-$$E[NPV] = - Inv + \sum_{i=1}^5 (\frac{(P - C)E[y_i] - Fix}{(1 + r)^{i}})$$<p>Con base en el valor de las variables</p>
+$$E[NPV] = - Inv + \sum_{i=1}^5 (\frac{(P - C)E[y_i] - Fix}{(1 + r)^{i}})$$$$
+E[NPV] = - Inv + 
+(\frac{(P - C)E[y_1] - Fix}{(1 + r)^{1}}) + 
+(\frac{(P - C)E[y_2] - Fix}{(1 + r)^{2}}) + 
+(\frac{(P - C)E[y_3] - Fix}{(1 + r)^{3}}) +
+(\frac{(P - C)E[y_4] - Fix}{(1 + r)^{4}}) +
+(\frac{(P - C)E[y_5] - Fix}{(1 + r)^{5}})
+$$<p>Con base en el valor de las variables</p>
 <ul>
 <li>$Inv = 1,800,000$</li>
 <li>$P = 5$</li>
@@ -8346,7 +8353,14 @@ $$$$\boxed{E[NPV] = 1,778,537.84}$$
 <p>De manera similar se aplica el mismo proceso, pero ahora para encontrar la varianza</p>
 $$Var[NPV] = Var[- Inv + \sum_{i=1}^5 (\frac{(P - C)y_i - Fix}{(1 + r)^{i}})]$$<p>Con ayuda de la propiedad $Var[a + b] = Var[a] + 2Cov[a, b] + Var[b]$</p>
 $$Var[NPV] = - Var[Inv] + 2Cov(Inv, \sum_{i=1}^5(\frac{(P - C)y_i - Fix}{(1 + r)^{i}})) + Var[\sum_{i=1}^5(\frac{(P - C)y_i - Fix}{(1 + r)^{i}})]$$<p>Usando las propiedades $Var[c] = 0$ y $Var[c \times x] = c^2 \times Var[x]$</p>
-$$Var[NPV] = 0 + 0 +\sum_{i=1}^5(Var[\frac{(P - C)y_i}{(1 + r)^{i}}])$$$$Var[NPV] = \sum_{i=1}^5((\frac{(P - C)}{(1 + r)^{i}})^2 Var[y_i])$$<p>Con base en el valor de las variables</p>
+$$Var[NPV] = 0 + 0 +\sum_{i=1}^5(Var[\frac{(P - C)y_i}{(1 + r)^{i}}])$$$$Var[NPV] = \sum_{i=1}^5((\frac{(P - C)}{(1 + r)^{i}})^2 Var[y_i])$$$$
+Var[NPV] = 
+(\frac{(P - C)}{(1 + r)^{1}})^2 Var[y_1] +
+(\frac{(P - C)}{(1 + r)^{2}})^2 Var[y_2] +
+(\frac{(P - C)}{(1 + r)^{3}})^2 Var[y_3] +
+(\frac{(P - C)}{(1 + r)^{4}})^2 Var[y_4] +
+(\frac{(P - C)}{(1 + r)^{5}})^2 Var[y_5]
+$$<p>Con base en el valor de las variables</p>
 <ul>
 <li>$P = 5$</li>
 <li>$C = 0.8$</li>
