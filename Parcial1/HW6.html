@@ -7578,15 +7578,32 @@ $$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <p>Resolución de $dS_t^n$</p>
+<p>Recordando la multiplicación de diferenciales del cálculo de Itô:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Producto</th>
+<th style="text-align:center">$dt$</th>
+<th style="text-align:center">$dW_t$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$dt$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$0$</td>
+</tr>
+<tr>
+<td style="text-align:center">$dW_t$</td>
+<td style="text-align:center">$0$</td>
+<td style="text-align:center">$dt$</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li><p>Para $n=2$</p>
 <p>$dS_t^2 = (\mu_R S_t dt + S_t \sigma dW_t)^2$</p>
 <p>$dS_t^2 = \mu_R^2 S_t^2 dt^2 + 2(\mu_R S_t dt)(S_t \sigma dW_t) + S_t^2 \sigma^2 dW_t^2$</p>
-<p>Recordando la multiplicación de diferenciales del cálculo de Itô:</p>
-<p>|        | $dt$ | $dW_t$ |
-  |:---:   |:---: |:---:   |
-  | $dt$   | 0    | 0      |
-  | $dW_t$ | 0    | $dt$   |</p>
 <p>$dS_t^2 =  \mu_R^2 S_t^2(0) + 2(\mu_R S_t)(S_t \sigma)(0) + S_t^2 \sigma^2 dt$</p>
 <p>$dS_t^2 = S_t^2 \sigma^2 dt$</p>
 </li>
