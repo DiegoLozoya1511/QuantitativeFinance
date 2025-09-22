@@ -7556,16 +7556,16 @@ $$ln(S_t) - ln(S_{t_1}) = \frac{1}{S_{t_1}}(\Delta S_t) - \frac{1}{2 S_{t_1}^2}(
 $$d ln(S_t) = \frac{1}{S_{t_1}}d S_t - \frac{1}{2 S_{t_1}^2}d S_t^2 + \frac{1}{3 S_{t_1}^3}d S_t^3 - \frac{1}{4 S_{t_1}^4}d S_t^4 + ...$$<p>De model 4 sabemos que $d S_t = \mu_R S_t dt + S_t \sigma dW_t$, lo cual sustituido queda como:</p>
 $$
 d ln(S_t) = 
-\frac{1}{S_{t_1}}(\mu_R S_t dt + S_t \sigma dW_t) - 
-\frac{1}{2 S_{t_1}^2}(\mu_R S_t dt + S_t \sigma dW_t)^2 + 
-\frac{1}{3 S_{t_1}^3}(\mu_R S_t dt + S_t \sigma dW_t)^3 - 
-\frac{1}{4 S_{t_1}^4}(\mu_R S_t dt + S_t \sigma dW_t)^4 + ...
+\frac{1}{S_{t}}(\mu_R S_t dt + S_t \sigma dW_t) - 
+\frac{1}{2 S_{t}^2}(\mu_R S_t dt + S_t \sigma dW_t)^2 + 
+\frac{1}{3 S_{t}^3}(\mu_R S_t dt + S_t \sigma dW_t)^3 - 
+\frac{1}{4 S_{t}^4}(\mu_R S_t dt + S_t \sigma dW_t)^4 + ...
 $$$$
 d ln(S_t) = 
 \mu_R dt + \sigma dW_t - 
-\frac{1}{2 S_{t_1}^2}(\mu_R S_t dt + S_t \sigma dW_t)^2 + 
-\frac{1}{3 S_{t_1}^3}(\mu_R S_t dt + S_t \sigma dW_t)^3 - 
-\frac{1}{4 S_{t_1}^4}(\mu_R S_t dt + S_t \sigma dW_t)^4 + ...
+\frac{1}{2 S_{t}^2}(\mu_R S_t dt + S_t \sigma dW_t)^2 + 
+\frac{1}{3 S_{t}^3}(\mu_R S_t dt + S_t \sigma dW_t)^3 - 
+\frac{1}{4 S_{t}^4}(\mu_R S_t dt + S_t \sigma dW_t)^4 + ...
 $$
 </div>
 </div>
@@ -7633,17 +7633,7 @@ $$
 <p>Aplicando esto a la ecuación anterior:</p>
 $$d ln(S_t) = \mu_R dt + \sigma dW_t - \frac{1}{2 S_{t_1}^2}(S_t^2 \sigma^2 dt) + \frac{1}{3 S_{t_1}^3}(0) - \frac{1}{4 S_{t_1}^4}(0) + ...$$<p>Se eliminan los puntos suspensibvos, ya que este comportamiento se puede generalizar</p>
 $$d ln(S_t) = \mu_R dt + \sigma dW_t - \frac{1}{2}(\sigma^2 dt)$$<p>Finalmente, factorizando por diferencial tenemos el modelo 3:</p>
-<p>$$\boxed{d ln(S_t) = (\mu_R - \frac{1}{2}\sigma^2) dt + \sigma dW_t}</p>
-</div>
-</div>
-</div>
-</div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+$$\boxed{d ln(S_t) = (\mu_R - \frac{1}{2}\sigma^2) dt + \sigma dW_t}$$
 </div>
 </div>
 </div>
